@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatCode</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="toolbar">
+        <span class="tool-icon" id="toggle-editors" title="Приховати редактори"><i class="fas fa-code"></i></span>
+        <span class="tool-icon" id="toggle-mode" title="Переключити режим"><i class="fas fa-columns"></i></span>
+        <input type="text" id="project-name" placeholder="Назва проєкту">
+        <span class="tool-icon" id="save-btn" title="Зберегти"><i class="fas fa-save"></i></span>
+        <span class="tool-icon" id="projects-btn" title="Проєкти"><i class="fas fa-folder-open"></i></span>
+        <span class="tool-icon" id="new-btn" title="Новий проєкт"><i class="fas fa-file"></i></span>
+        <span class="tool-icon" id="export-btn" title="Експорт"><i class="fas fa-download"></i></span>
+        <span class="tool-icon" id="settings-btn" title="Налаштування"><i class="fas fa-cog"></i></span>
+        <span class="tool-icon" id="language-btn" title="Мова"><i class="fas fa-globe"></i></span>
+    </div>
+    <div class="container">
+        <div class="editor-container" id="editor-container">
+            <div class="tabs" id="tabs">
+                <span class="tab" data-type="html">HTML</span>
+                <span class="tab" data-type="css">CSS</span>
+                <span class="tab" data-type="js">JS</span>
+                <span class="tab" data-type="php">PHP</span>
+                <span class="tab" data-type="python">Python</span>
+                <span class="tab" data-type="sql">SQL</span>
+                <span class="tab" data-type="json">JSON</span>
+                <span class="tab" data-type="markdown">Markdown</span>
+            </div>
+            <div class="editor-panel" data-type="html">
+                <textarea id="html-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="css">
+                <textarea id="css-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="js">
+                <textarea id="js-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="php">
+                <textarea id="php-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="python">
+                <textarea id="python-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="sql">
+                <textarea id="sql-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="json">
+                <textarea id="json-editor" class="editor"></textarea>
+            </div>
+            <div class="editor-panel" data-type="markdown">
+                <textarea id="markdown-editor" class="editor"></textarea>
+            </div>
+        </div>
+        <div class="resizer" id="resizer"></div>
+        <div class="preview" id="preview">
+            <iframe id="preview-frame"></iframe>
+        </div>
+    </div>
+    <div class="modal" id="projects-modal">
+        <div class="modal-header">
+            <h3>Проєкти</h3>
+            <span class="close-btn" id="close-projects">×</span>
+        </div>
+        <div class="projects-list" id="projects-list"></div>
+    </div>
+    <div class="modal" id="settings-modal">
+        <div class="modal-header">
+            <h3>Налаштування</h3>
+            <span class="close-btn" id="close-settings">×</span>
+        </div>
+        <div class="settings-content">
+            <label>Тема редактора:
+                <select id="editor-theme">
+                    <option value="dark">Темна</option>
+                    <option value="light">Світла</option>
+                    <option value="gradient">Градиентна</option>
+                    <option value="futuristic">Футуристична</option>
+                    <option value="hacker">Хакерська</option>
+                </select>
+            </label>
+            <label>Розмір шрифту:
+                <input type="number" id="font-size" min="10" max="30" value="14">
+            </label>
+            <label>Автозбереження (сек):
+                <input type="number" id="autosave-interval" min="1" value="5">
+            </label>
+            <button id="save-settings">Зберегти</button>
+        </div>
+    </div>
+    <div class="markdown-toolbar" id="markdown-toolbar">
+        <span class="tool-icon" title="Заголовок 1" data-action="h1"><i class="fas fa-heading"></i> H1</span>
+        <span class="tool-icon" title="Заголовок 2" data-action="h2"><i class="fas fa-heading"></i> H2</span>
+        <span class="tool-icon" title="Жирний" data-action="bold"><i class="fas fa-bold"></i></span>
+        <span class="tool-icon" title="Курсив" data-action="italic"><i class="fas fa-italic"></i></span>
+        <span class="tool-icon" title="Список" data-action="list"><i class="fas fa-list-ul"></i></span>
+        <span class="tool-icon" title="Посилання" data-action="link"><i class="fas fa-link"></i></span>
+        <span class="tool-icon" title="Код" data-action="code"><i class="fas fa-code"></i></span>
+        <span class="tool-icon" title="Цитата" data-action="quote"><i class="fas fa-quote-left"></i></span>
+        <span class="tool-icon" title="Зображення" data-action="image"><i class="fas fa-image"></i></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
